@@ -1,0 +1,2 @@
+# GalleryManager
+Gallery Manager
