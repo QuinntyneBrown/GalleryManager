@@ -1,4 +1,4 @@
-﻿import { IDispatcher } from "../store/store";
+﻿import { IDispatcher } from "../../libs/store";
 
 
 export class GalleryActionCreator {

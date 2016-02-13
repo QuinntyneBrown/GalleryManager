@@ -4,7 +4,7 @@ var webpack = require("gulp-webpack");
 var rename = require("gulp-rename");
 
 gulp.task("webpack", function () {
-    return gulp.src('wwwroot/app.ts')
+    return gulp.src('wwwroot/bootstrap.ts')
     .pipe(webpack({
         resolve: {
             extensions: ["", ".js", ".ts"]
