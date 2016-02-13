@@ -13,6 +13,9 @@
 wwwroot/**/*.js
 wwwroot/**/*.js.map
 
+dist/**/*.js
+dist/**/*.js.map
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

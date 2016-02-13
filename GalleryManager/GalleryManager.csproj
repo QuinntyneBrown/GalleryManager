@@ -141,10 +141,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
-    <Content Include="wwwroot\store\store.js" />
+    <Content Include="wwwroot\reducers\addBrandReducer.js" />
+    <Content Include="typings.json" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -210,14 +212,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="wwwroot\actions\" />
     <Folder Include="wwwroot\components\" />
-    <Folder Include="wwwroot\services\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="typings\promise\promise.d.ts" />
+    <TypeScriptCompile Include="typings\es6-shim\es6-shim.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
+    <TypeScriptCompile Include="wwwroot\actions\brand\addBrandAction.ts" />
+    <TypeScriptCompile Include="wwwroot\actions\brand\deleteBrandAction.ts" />
     <TypeScriptCompile Include="wwwroot\app.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\addBrandReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\services\brand-service.ts" />
+    <TypeScriptCompile Include="wwwroot\services\gallery-service.ts" />
+    <TypeScriptCompile Include="wwwroot\services\photo-service.ts" />
     <TypeScriptCompile Include="wwwroot\store\store.ts" />
   </ItemGroup>
   <ItemGroup>
