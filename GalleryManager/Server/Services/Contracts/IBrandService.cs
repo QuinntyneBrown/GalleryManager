@@ -8,6 +8,5 @@ namespace Chloe.Server.Services.Contracts
         BrandDto Add(BrandRequestDto dto);
         bool Remove(int id);
         ICollection<BrandDto> Get();
-        ICollection<BrandDto> GetAllIncludingChildren();
     }
 }

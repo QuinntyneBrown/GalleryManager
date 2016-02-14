@@ -1,4 +1,5 @@
 ﻿angular.module("galleryManagerApp", [
+    "apiEndpoint",
     "fetch",
     "localStorageManager",
     "routeResolver",
