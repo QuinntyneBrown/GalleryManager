@@ -2,7 +2,7 @@
 
 
 export class PhotoActionCreator {
-    constructor(private dispatcher: IDispatcher) {
+    constructor(private dispatcher: IDispatcher, private photoService) {
     }
 
 }

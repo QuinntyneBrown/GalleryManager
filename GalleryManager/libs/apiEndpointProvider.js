@@ -1,4 +1,4 @@
-var ApiEndpointProvider = (function () {
+angular.module("apiEndpoint", []).provider("apiEndpoint", (function () {
     function ApiEndpointProvider() {
         var _this = this;
         this.config = {
@@ -34,6 +34,4 @@ var ApiEndpointProvider = (function () {
         return this.config;
     };
     return ApiEndpointProvider;
-})();
-exports.ApiEndpointProvider = ApiEndpointProvider;
-angular.module("apiEndpoint", []).provider("apiEndpoint", ApiEndpointProvider);
+})());

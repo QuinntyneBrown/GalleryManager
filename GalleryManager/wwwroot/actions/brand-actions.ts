@@ -2,18 +2,30 @@
 
 
 export class BrandActionCreator {
-    constructor(private dispatcher: IDispatcher) {
+    constructor(private brandService, private dispatcher: IDispatcher, private guid) {
+
     }
+
+    addBrand = options => {
+        var newId = this.guid();
+        this.brandService.add({ data: options.data }).then(results => {
+            var action = new AddBrandAction(newId, results);
+            this.dispatcher.dispatch(action);
+        });
+        return newId;
+    } 
 
 }
 
+export class TestAction { constructor(public id) { } }
 
-export class AddBrandAction { constructor(public entity) { } }
 
-export class AllBrandsAction { constructor(public entities) { } }
+export class AddBrandAction { constructor(public id, public entity) { } }
 
-export class RemoveBrandAction { constructor(public id) { } }
+export class AllBrandsAction { constructor(public id, public entities) { } }
 
-export class BrandsFilterAction { constructor(public term) { } }
+export class RemoveBrandAction { constructor(public id, public entityId) { } }
 
-export class SetCurrentBrandAction { constructor(public id) { } }
+export class BrandsFilterAction { constructor(public id, public term) { } }
+
+export class SetCurrentBrandAction { constructor(public id, public entityId) { } }

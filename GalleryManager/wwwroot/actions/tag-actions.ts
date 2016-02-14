@@ -2,7 +2,7 @@
 
 
 export class TagActionCreator {
-    constructor(private dispatcher: IDispatcher) {
+    constructor(private dispatcher: IDispatcher, private tagService) {
     }
 
 }

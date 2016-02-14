@@ -31,12 +31,27 @@ var Store = (function (_super) {
             for (var i = 0; i < _this.reducers.length; i++) {
                 _this.state = _this.reducers[i](_this.state, action);
             }
+            _this.state = _this.setLastTriggeredByActionId(_this.state, action);
             _this.onNext(_this.state);
         };
-        dispatcher.subscribe(this.onDispatcherNext);
+        this.setLastTriggeredByActionId = function (state, action) {
+            state.lastTriggeredByActionId = action.id;
+            return state;
+        };
+        this.state = initialState;
+        dispatcher.subscribe(function (action) { return _this.onDispatcherNext(action); });
     }
     return Store;
 })(Rx.BehaviorSubject);
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+}
 var Dispatcher = (function (_super) {
     __extends(Dispatcher, _super);
     function Dispatcher() {
@@ -51,4 +66,5 @@ angular.module("store", [])
     .service("dispatcher", [Dispatcher])
     .provider("reducers", ReducersProvider)
     .provider("initialState", InitialStateProvider)
+    .value("guid", guid)
     .run(["store", function (store) { }]);

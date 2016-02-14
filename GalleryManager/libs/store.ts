@@ -1,7 +1,11 @@
 ﻿/// <reference path="../typings/tsd.d.ts" />
 
 export interface IAppState {
+    lastModifiedByActionId: any;
+}
 
+export type AppState = {
+    lastModifiedByActionId: any;
 }
 
 export interface IDispatcher {
@@ -26,26 +30,45 @@ class ReducersProvider implements ng.IServiceProvider {
     $get = () => this.reducers;
 }
 
-class Store<IAppState> extends Rx.BehaviorSubject<IAppState> implements IStore {
-    constructor(dispatcher: IDispatcher, initialState: IAppState, private reducers: any[]) {
+class Store<T> extends Rx.BehaviorSubject<T> implements IStore {
+    constructor(dispatcher: IDispatcher, initialState: T, private reducers: any[]) {
         super(initialState);
-        dispatcher.subscribe(this.onDispatcherNext);
+        this.state = initialState;
+        dispatcher.subscribe(action => this.onDispatcherNext(action));
     }
 
-    onDispatcherNext = (action) => {
+    onDispatcherNext = (action) => {        
         for (var i = 0; i < this.reducers.length; i++) {
             this.state = this.reducers[i](this.state, action);
         }
+        this.state = this.setLastTriggeredByActionId(this.state, action);
         this.onNext(this.state);
     }
 
-    state: IAppState;
+    setLastTriggeredByActionId = (state, action) => {        
+        state.lastTriggeredByActionId = action.id;
+        return state;
+    }
 
+    state: T;
+
+}
+
+function guid () {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
 }
 
 class Dispatcher<T> extends Rx.Subject<T> implements IDispatcher {
     constructor() { super() }
+    
     dispatch = action => this.onNext(action);
+
 }
 
 angular.module("store", [])
@@ -53,4 +76,6 @@ angular.module("store", [])
     .service("dispatcher", [Dispatcher])
     .provider("reducers", ReducersProvider)
     .provider("initialState", InitialStateProvider)
+    .value("guid",guid)
     .run(["store", store => { } ]);
+

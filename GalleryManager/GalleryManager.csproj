@@ -145,6 +145,7 @@
     <Content Include="index.html" />
     <Content Include="libs\angular-animate.min.js" />
     <Content Include="libs\angular-route.min.js" />
+    <Content Include="libs\angular.js" />
     <Content Include="libs\angular.min.js" />
     <Content Include="libs\rx.all.compat.min.js" />
     <Content Include="packages.config" />
@@ -238,17 +239,20 @@
     <Compile Include="Server\Models\User.cs" />
     <Compile Include="Server\Services\BrandService.cs" />
     <Compile Include="Server\Services\Contracts\IBrandService.cs" />
-    <Compile Include="Server\Services\Contracts\IFileService.cs" />
-    <Compile Include="Server\Services\FileService.cs" />
+    <Compile Include="Server\Services\Contracts\IPhotoService.cs" />
+    <Compile Include="Server\Services\PhotoService.cs" />
     <Compile Include="Server\Services\InMemoryMultipartFormDataStreamProvider.cs" />
     <Compile Include="Server\Services\PhotoMultipartFormDataStreamProvider.cs" />
     <Compile Include="Server\Services\StreamHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="wwwroot\store\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
+    <TypeScriptCompile Include="libs\invoke-async.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
     <TypeScriptCompile Include="libs\routeResolver.ts" />
     <TypeScriptCompile Include="typings\es6-shim\es6-shim.d.ts" />

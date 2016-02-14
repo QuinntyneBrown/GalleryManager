@@ -2,7 +2,7 @@
 
 
 export class GalleryActionCreator {
-    constructor(private dispatcher: IDispatcher) {
+    constructor(private dispatcher: IDispatcher, private galleryService) {
     }
 
 }
