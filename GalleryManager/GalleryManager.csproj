@@ -50,16 +50,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -78,6 +78,15 @@
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Jwt">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.1\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
       <Private>True</Private>
@@ -95,8 +104,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -141,6 +154,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="libs\angular-animate.min.js" />
@@ -180,9 +194,7 @@
     <Content Include="wwwroot\components\photo-upload.html">
       <DependentUpon>photo-upload.ts</DependentUpon>
     </Content>
-    <Content Include="wwwroot\reducers\addBrandReducer.js" />
     <Content Include="typings.json" />
-    <None Include="tsconfig.json" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -199,6 +211,7 @@
     <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <None Include="tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,11 +225,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Server\ApiConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\Auth\JwtOptions.cs" />
+    <Compile Include="Server\Auth\JwtWriterFormat.cs" />
+    <Compile Include="Server\Auth\OAuthOptions.cs" />
+    <Compile Include="Server\Auth\OAuthProvider.cs" />
+    <Compile Include="Server\Config\AuthConfiguration.cs" />
+    <Compile Include="Server\Config\ConfigurationProvider.cs" />
+    <Compile Include="Server\Config\Contracts\IAuthConfiguration.cs" />
+    <Compile Include="Server\Config\Contracts\IConfigurationProvider.cs" />
     <Compile Include="Server\Controllers\BrandController.cs" />
     <Compile Include="Server\Controllers\GalleryController.cs" />
     <Compile Include="Server\Controllers\PhotoController.cs" />
+    <Compile Include="Server\Controllers\UserController.cs" />
     <Compile Include="Server\Data\ChloeContext.cs" />
     <Compile Include="Server\Data\ChloeUow.cs" />
     <Compile Include="Server\Data\Contracts\IChloeUow.cs" />
@@ -232,6 +255,9 @@
     <Compile Include="Server\Dtos\ImageRequestDto.cs" />
     <Compile Include="Server\Dtos\OptionDto.cs" />
     <Compile Include="Server\Dtos\PhotoDto.cs" />
+    <Compile Include="Server\Dtos\RegistrationRequestDto.cs" />
+    <Compile Include="Server\Dtos\SignInDto.cs" />
+    <Compile Include="Server\Dtos\TokenDto.cs" />
     <Compile Include="Server\Models\BaseEntity.cs" />
     <Compile Include="Server\Models\Brand.cs" />
     <Compile Include="Server\Models\Gallery.cs" />
@@ -240,16 +266,23 @@
     <Compile Include="Server\Models\User.cs" />
     <Compile Include="Server\Services\BrandService.cs" />
     <Compile Include="Server\Services\Contracts\IBrandService.cs" />
+    <Compile Include="Server\Services\Contracts\IIdentityService.cs" />
     <Compile Include="Server\Services\Contracts\IPhotoService.cs" />
+    <Compile Include="Server\Services\Contracts\ITagService.cs" />
+    <Compile Include="Server\Services\Contracts\IUserService.cs" />
+    <Compile Include="Server\Services\IdentityService.cs" />
     <Compile Include="Server\Services\PhotoService.cs" />
     <Compile Include="Server\Services\InMemoryMultipartFormDataStreamProvider.cs" />
     <Compile Include="Server\Services\PhotoMultipartFormDataStreamProvider.cs" />
     <Compile Include="Server\Services\StreamHelper.cs" />
+    <Compile Include="Server\Services\TagService.cs" />
+    <Compile Include="Server\Services\UserService.cs" />
+    <Compile Include="Server\UnityConfiguration.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
-    <Folder Include="wwwroot\store\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
@@ -273,9 +306,11 @@
     <TypeScriptCompile Include="libs\fetch.ts" />
     <TypeScriptCompile Include="libs\localStorageManager.ts" />
     <TypeScriptCompile Include="libs\safeDigest.ts" />
-    <TypeScriptCompile Include="wwwroot\reducers\addBrandReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\brand\addBrandReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\index.ts" />
     <TypeScriptCompile Include="wwwroot\services\brand-service.ts" />
     <TypeScriptCompile Include="wwwroot\services\gallery-service.ts" />
+    <TypeScriptCompile Include="wwwroot\services\index.ts" />
     <TypeScriptCompile Include="wwwroot\services\photo-service.ts" />
     <TypeScriptCompile Include="libs\store.ts" />
   </ItemGroup>

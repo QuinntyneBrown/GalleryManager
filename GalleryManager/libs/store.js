@@ -68,3 +68,4 @@ angular.module("store", [])
     .provider("initialState", InitialStateProvider)
     .value("guid", guid)
     .run(["store", function (store) { }]);
+//# sourceMappingURL=store.js.map

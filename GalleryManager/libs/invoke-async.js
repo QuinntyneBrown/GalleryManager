@@ -15,3 +15,4 @@ angular.module("invokeAsync", []).value("invokeAsync", function (options) {
     });
     return deferred.promise;
 });
+//# sourceMappingURL=invoke-async.js.map

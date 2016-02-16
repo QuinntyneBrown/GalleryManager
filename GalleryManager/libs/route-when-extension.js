@@ -40,3 +40,4 @@ angular.module("routeWhenExtension", ["ngRoute"])
             return $routeProvider;
         };
     }]);
+//# sourceMappingURL=route-when-extension.js.map

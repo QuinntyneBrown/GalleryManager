@@ -38,3 +38,4 @@ angular.module("fetch", ["localStorageManager"]).service("fetch", ["$http", "$q"
         });
         return fetch;
     })()]);
+//# sourceMappingURL=fetch.js.map
