@@ -1,4 +1,5 @@
-﻿.photoUpload {
-
-
+﻿.photoUpload-dropZone {
+    background-color:azure;
+    height:500px;
+    width:500px;
 }

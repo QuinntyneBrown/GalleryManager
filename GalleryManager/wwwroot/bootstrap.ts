@@ -1,10 +1,10 @@
 ﻿/// <reference path="../typings/tsd.d.ts" />
 
-import { BrandActionCreator } from "./actions";
+import { BrandActionCreator, GalleryActionCreator, PhotoActionCreator } from "./actions";
 
 import { BrandService, GalleryService, PhotoService } from "./services";
 
-import { HomeComponent, AppComponent } from "./components";
+import { HomeComponent, AppComponent, PhotoUploadComponent } from "./components";
 
 import { addBrandReducer } from "./reducers";
 
@@ -31,6 +31,13 @@ app.component({
     componentName: "homeComponent",
     component: HomeComponent,
     providers: ["brandActionCreator"]
+});
+
+app.component({
+    templateUrl: "wwwroot/components/photo-upload.html",
+    componentName: "photoUploadComponent",
+    component: PhotoUploadComponent,
+    providers: ["$attrs", "$element", "$http", "$scope"]
 });
     
 app.service("brandActionCreator", ["brandService", "dispatcher", "guid", BrandActionCreator]);
