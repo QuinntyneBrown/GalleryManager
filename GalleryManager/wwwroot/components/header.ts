@@ -1,4 +1,5 @@
 ﻿export class HeaderComponent {
 
+    constructor() { }
 
 }

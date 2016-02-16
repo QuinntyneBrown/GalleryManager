@@ -4,7 +4,7 @@ import { BrandActionCreator, GalleryActionCreator, PhotoActionCreator } from "./
 
 import { BrandService, GalleryService, PhotoService } from "./services";
 
-import { HomeComponent, AppComponent, PhotoUploadComponent } from "./components";
+import { HeaderComponent, HomeComponent, AppComponent, PhotoUploadComponent } from "./components";
 
 import { addBrandReducer } from "./reducers";
 
