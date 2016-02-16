@@ -1,13 +1,21 @@
 ﻿import { IDispatcher } from "../../libs/store";
 
 export interface IBrandActionCreator {
-
+    get(): string;
+    addBrand(options:any): string;
 }
 
 export class BrandActionCreator implements IBrandActionCreator {
-    constructor(private brandService, private dispatcher: IDispatcher, private guid) {
+    constructor(private brandService, private dispatcher: IDispatcher, private guid) { }
 
-    }
+    get = () => {
+        var newId = this.guid();
+        this.brandService.get().then(results => {
+            var action = new AllBrandsAction(newId, results);
+            this.dispatcher.dispatch(action);
+        });
+        return newId;
+    } 
 
     addBrand = options => {
         var newId = this.guid();
@@ -19,9 +27,6 @@ export class BrandActionCreator implements IBrandActionCreator {
     } 
 
 }
-
-export class TestAction { constructor(public id) { } }
-
 
 export class AddBrandAction { constructor(public id, public entity) { } }
 

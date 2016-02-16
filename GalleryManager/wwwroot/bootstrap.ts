@@ -1,11 +1,13 @@
 ﻿/// <reference path="../typings/tsd.d.ts" />
 
-import { BrandActionCreator } from "./actions/brand-actions";
+import { BrandActionCreator } from "./actions";
 
-import { BrandService } from "./services/brand-service";
+import { BrandService, GalleryService, PhotoService } from "./services";
 
-import { HomeComponent } from "./components/home";
-import { AppComponent } from "./components/app";
+import { HomeComponent, AppComponent } from "./components";
+
+import { addBrandReducer } from "./reducers";
+
 
 var app = (<any>angular.module("galleryManagerApp", [
     "apiEndpoint",
@@ -18,7 +20,11 @@ var app = (<any>angular.module("galleryManagerApp", [
     "store"
 ]));
 
-app.component({ templateUrl: "wwwroot/components/app.html", component: AppComponent, selector: "app" });
+app.component({
+    templateUrl: "wwwroot/components/app.html",
+    component: AppComponent,
+    selector: "app"
+});
 
 app.component({
     templateUrl: "wwwroot/components/home.html",

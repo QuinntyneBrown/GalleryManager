@@ -1,10 +1,14 @@
-﻿
-import { IBrandActionCreator } from "../actions/brand-actions";
+﻿import { IBrandActionCreator } from "../actions/brand-actions";
 
 export class HomeComponent {
 
-    constructor(private brandActionCreator: IBrandActionCreator) {
+    constructor() {
         
     }
+
+    static canActivate = () => [
+        "brandActionCreator", "invokeAsync",
+        (brandActionCreator: IBrandActionCreator, invokeAsync) => invokeAsync(brandActionCreator.get)
+    ];
     
 }

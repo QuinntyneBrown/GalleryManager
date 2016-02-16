@@ -267,6 +267,7 @@
     <TypeScriptCompile Include="wwwroot\components\gallery.ts" />
     <TypeScriptCompile Include="wwwroot\components\header.ts" />
     <TypeScriptCompile Include="wwwroot\components\home.ts" />
+    <TypeScriptCompile Include="wwwroot\components\index.ts" />
     <TypeScriptCompile Include="wwwroot\components\photo-upload.ts" />
     <TypeScriptCompile Include="libs\component-extension.ts" />
     <TypeScriptCompile Include="libs\fetch.ts" />
