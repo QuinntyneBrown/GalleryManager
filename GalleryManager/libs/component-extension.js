@@ -80,7 +80,7 @@ angular.module = function () {
             };
         };
         m.directive(componentNameCamelCase, [function () { return directiveDefinitionObject; }]);
-        m.controller(componentNameCamelCase + "Component", options.component);
+        m.controller(options.componentName ? options.componentName : componentNameCamelCase + "Component", options.component);
     };
     return m;
 };

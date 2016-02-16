@@ -17,14 +17,14 @@
     //    return deferred.promise;
     //};
 
-    //remove(options) {
-    //    let deferred = this.$q.defer();
-    //    this.fetch.fromService({ method: "DELETE", url: this.baseUri + "/remove", params: { id: options.id } }).then((results) => {
-    //        deferred.resolve(results.data);
-    //    });
-    //    return deferred.promise;
-    //};
+    remove(options) {
+        let deferred = this.$q.defer();
+        this.fetch.fromService({ method: "DELETE", url: this.baseUri + "/remove", params: { id: options.id } }).then((results) => {
+            deferred.resolve(results.data);
+        });
+        return deferred.promise;
+    };
 
-    //get baseUri() { return this.apiEndpoint.getBaseUrl() + "/brand"; }
+    get baseUri() { return this.apiEndpoint.getBaseUrl() + "/brand"; }
 
 }

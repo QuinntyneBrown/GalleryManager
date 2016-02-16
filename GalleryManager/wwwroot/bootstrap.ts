@@ -4,7 +4,10 @@ import { BrandActionCreator } from "./actions/brand-actions";
 
 import { BrandService } from "./services/brand-service";
 
-angular.module("galleryManagerApp", [
+import { HomeComponent } from "./components/home";
+import { AppComponent } from "./components/app";
+
+var app = (<any>angular.module("galleryManagerApp", [
     "apiEndpoint",
     "fetch",
     "invokeAsync",
@@ -13,15 +16,28 @@ angular.module("galleryManagerApp", [
     "routeWhenExtension",
     "safeDigest",
     "store"
-])
-    .service("brandActionCreator", ["brandService", "dispatcher", "guid", BrandActionCreator])
+]));
 
-    .service("brandService", ["$q", "apiEndpoint", "fetch", BrandService])
+app.component({ templateUrl: "wwwroot/components/app.html", component: AppComponent, selector: "app" });
 
-    .config(["initialStateProvider", (initialStateProvider) => {
-        initialStateProvider.configure({});
-    }])
+app.component({
+    templateUrl: "wwwroot/components/home.html",
+    componentName: "homeComponent",
+    component: HomeComponent,
+    providers: ["brandActionCreator"]
+});
+    
+app.service("brandActionCreator", ["brandService", "dispatcher", "guid", BrandActionCreator]);
 
-    .run(["invokeAsync", "brandActionCreator", (invokeAsync, brandActionCreator: BrandActionCreator) => {
+app.service("brandService", ["$q", "apiEndpoint", "fetch", BrandService]);
+
+app.config(["$routeProvider", "initialStateProvider", ($routeProvider, initialStateProvider) => {
+    initialStateProvider.configure({});
+
+    $routeProvider.when("/", { componentName: "homeComponent" })
+        .otherwise("/");
+}]);
+
+app.run(["invokeAsync", "brandActionCreator", (invokeAsync, brandActionCreator: BrandActionCreator) => {
         //var id = brandActionCreator.add({ name: 'Test' });        
 }]);

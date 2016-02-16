@@ -26,7 +26,7 @@ gulp.task("webpack", function () {
 
 gulp.task('watch', function () {
     gulp.watch([
-        './wwwroot/**/*.ts'
+        './wwwroot/**/*.ts', './wwwroot/**/*.html', './wwwroot/**/*.css'
     ], ['webpack']);
 });
 

@@ -1,7 +1,10 @@
 ﻿import { IDispatcher } from "../../libs/store";
 
+export interface IBrandActionCreator {
 
-export class BrandActionCreator {
+}
+
+export class BrandActionCreator implements IBrandActionCreator {
     constructor(private brandService, private dispatcher: IDispatcher, private guid) {
 
     }

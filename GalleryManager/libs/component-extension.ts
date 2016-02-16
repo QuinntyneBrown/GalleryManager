@@ -100,7 +100,7 @@ angular.module = function () {
         m.directive(componentNameCamelCase,
             [() => { return directiveDefinitionObject; }]);
 
-        m.controller(componentNameCamelCase + "Component", options.component);
+        m.controller(options.componentName ? options.componentName : componentNameCamelCase + "Component", options.component);
     }
     return m;
 };
