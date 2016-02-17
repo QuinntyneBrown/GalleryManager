@@ -2,6 +2,37 @@
 var gulpUtil = require("gulp-util");
 var webpack = require("gulp-webpack");
 var rename = require("gulp-rename");
+var concat = require('gulp-concat');
+var templateCache = require('gulp-angular-templatecache');
+
+var libs = [
+
+]
+
+var paths = {
+    npm: './node_modules/',
+    lib: './lib/'
+};
+
+gulp.task('libs', function () {
+    return gulp.src(libs).pipe(gulp.dest(paths.lib));
+});
+
+gulp.task('template-cache', function () {
+    return gulp.src('wwwroot/**/*.html')
+        .pipe(templateCache({
+            root: 'wwwroot/',
+            module: "galleryManagerApp"
+        }))
+        .pipe(concat('galleryManagerAppTemplates.js'))
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('concat-css', function () {
+    return gulp.src(["wwwroot/**/*.css"])
+      .pipe(concat('galleryManagerApp.css'))
+      .pipe(gulp.dest('./dist/'));
+});
 
 gulp.task("webpack", function () {
     return gulp.src('wwwroot/bootstrap.ts')
@@ -27,7 +58,7 @@ gulp.task("webpack", function () {
 gulp.task('watch', function () {
     gulp.watch([
         './wwwroot/**/*.ts', './wwwroot/**/*.html', './wwwroot/**/*.css'
-    ], ['webpack']);
+    ], ['concat-css', 'template-cache', 'webpack']);
 });
 
-gulp.task('default', ['webpack', 'watch']);
+gulp.task('default', ['concat-css', 'template-cache', 'webpack', 'watch']);
