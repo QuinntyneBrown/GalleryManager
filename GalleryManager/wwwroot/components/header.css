@@ -1,1 +1,10 @@
-﻿
+﻿.appHeader {
+    height:50px;
+}
+
+.appHeader a {
+    padding:7.5px;
+    text-transform: uppercase;
+}
+
+.appHeader a.selected { font-weight:800; background-color:#F36C81; color:#EEE; }

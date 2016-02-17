@@ -20,4 +20,4 @@
 
 angular.module("authInterceptor", ["store"])
     .factory("authInterceptor", ["store", store => new AuthInterceptor(store)])
-    .config(["$httpProvider", $httpProvider => $httpProvider.interceptors.push("authorizationInterceptor")]);
+    .config(["$httpProvider", $httpProvider => $httpProvider.interceptors.push("authInterceptor")]);

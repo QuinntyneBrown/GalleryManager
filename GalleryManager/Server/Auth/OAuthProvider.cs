@@ -16,14 +16,11 @@ namespace Chloe.Server.Auth
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var identity = new ClaimsIdentity("chloe");
-
             var username = context.OwinContext.Get<string>("chloe:username");
-
             foreach (var claim in this.identityService.GetClaimsForUser(username))
             {
                 identity.AddClaim(claim);
             }
-
             context.Validated(identity);
             return Task.FromResult(0);
         }

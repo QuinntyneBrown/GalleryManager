@@ -53,3 +53,4 @@ var LocalStorageManager = (function () {
     return LocalStorageManager;
 })();
 angular.module("localStorageManager", []).service("localStorageManager", ["$window", LocalStorageManager]);
+//# sourceMappingURL=localStorageManager.js.map

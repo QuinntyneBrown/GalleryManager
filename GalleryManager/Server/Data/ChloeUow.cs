@@ -29,7 +29,9 @@ namespace Chloe.Server.Data
         
         public IRepository<Brand> Brands { get { return GetStandardRepo<Brand>(); } }
         public IRepository<Photo> Photos { get { return GetStandardRepo<Photo>(); } }
-        
+        public IRepository<User> Users { get { return GetStandardRepo<User>(); } }
+        public IRepository<Role> Roles { get { return GetStandardRepo<Role>(); } }
+        public IRepository<Gallery> Galleries { get { return GetStandardRepo<Gallery>(); } }
         protected void ConfigureDbContext(IDbContext dbContext)
         {
             dbContext.Configuration.ProxyCreationEnabled = false;

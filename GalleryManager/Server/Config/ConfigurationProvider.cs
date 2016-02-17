@@ -1,13 +1,15 @@
 ﻿using Chloe.Server.Config.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Chloe.Server.Config
 {
     public class ConfigurationProvider : IConfigurationProvider
     {
+        public ConfigurationProvider()
+        {
+
+        }
+
         public T Get<T>() where T : class
         {
             if (typeof(T) == typeof(IAuthConfiguration))

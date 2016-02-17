@@ -1,16 +1,17 @@
 ﻿export class LoginComponent {
 
-    constructor() {
-
-    }
+    constructor(private $location, private invokeAsync, private userActionCreator) { }
     
-    static canActivate = () => [
-        "$q", $q => {
-            var deferred = $q.defer();
-            deferred.resolve();
-            return deferred.promise;
-        }
-    ]
+    tryToLogin = () => {
+        this.invokeAsync({
+            action: this.userActionCreator.tryToLogin,
+            params: { username: this.username, password: this.password }
+        }).then(results => {
+            this.$location.path("/gallery-list");
+        });    
+    }
 
+    username;
+    password;
 }
 

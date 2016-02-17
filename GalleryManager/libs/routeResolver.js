@@ -99,3 +99,4 @@ var RouteResolverServiceProvider = (function () {
 })();
 angular.module("routeResolver", [])
     .provider("routeResolverService", [RouteResolverServiceProvider]);
+//# sourceMappingURL=routeResolver.js.map

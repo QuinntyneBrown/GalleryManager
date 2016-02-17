@@ -1,5 +1,4 @@
-﻿export class BrandService {
-
+﻿export class TagService {
     constructor(private $q: angular.IQService, private apiEndpoint, private fetch) { }
 
     get() {
@@ -26,6 +25,5 @@
         return deferred.promise;
     };
 
-    get baseUri() { return this.apiEndpoint.getBaseUrl() + "/brand"; }
-
+    get baseUri() { return this.apiEndpoint.getBaseUrl() + "/tag"; }
 }

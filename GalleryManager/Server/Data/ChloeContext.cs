@@ -16,8 +16,11 @@ namespace Chloe.Server.Data
         }
 
         public DbSet<Brand> Brands { get; set; }
-
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

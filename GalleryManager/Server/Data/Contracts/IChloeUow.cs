@@ -6,6 +6,7 @@ namespace Chloe.Server.Data.Contracts
     {
         IRepository<Brand> Brands { get; }
         IRepository<Photo> Photos { get; }
+        IRepository<User> Users { get; }
         void SaveChanges();
     }
 }

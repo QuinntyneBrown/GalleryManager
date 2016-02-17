@@ -1,3 +1,13 @@
 ﻿<div class="login">
     <h1>Login</h1>
+
+    <div>
+        <input type="text" placeholder="username" data-ng-model="vm.username" />
+    </div>
+
+    <div>
+        <input type="password" placeholder="password" data-ng-model="vm.password" />
+    </div>
+    
+    <button data-ng-click="vm.tryToLogin()">Login</button>
 </div>

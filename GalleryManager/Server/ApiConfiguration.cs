@@ -1,11 +1,10 @@
 ﻿using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Chloe.Server.Auth;
+using Microsoft.Practices.Unity;
+using Chloe.Server.Config.Contracts;
 
 namespace Chloe.Server
 {
@@ -13,6 +12,18 @@ namespace Chloe.Server
     {
         public static void Install(HttpConfiguration config, IAppBuilder app)
         {
+            config.SuppressHostPrincipal();
+
+            Chloe.Server.Services.Contracts.IIdentityService identityService = UnityConfiguration.GetContainer().Resolve<Chloe.Server.Services.Contracts.IIdentityService>();
+
+            Chloe.Server.Config.Contracts.IConfigurationProvider configurationProvider = UnityConfiguration.GetContainer().Resolve<IConfigurationProvider>();
+
+            app.UseOAuthAuthorizationServer(new OAuthOptions(identityService));
+
+            app.UseJwtBearerAuthentication(new Chloe.Server.Auth.JwtOptions(configurationProvider));
+
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
             var jSettings = new JsonSerializerSettings();
             jSettings.Formatting = Formatting.Indented;
             jSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

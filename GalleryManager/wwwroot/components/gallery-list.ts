@@ -1,7 +1,7 @@
 ﻿export class GalleryListComponent {
+    constructor() { }
 
-    constructor() {
+    storeOnChange = state => this.state = state;
 
-    }
-
+    state;
 }

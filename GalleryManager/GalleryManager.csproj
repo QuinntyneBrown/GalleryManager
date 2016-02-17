@@ -116,6 +116,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -240,6 +241,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\UserConfiguration.cs" />
     <Compile Include="Server\ApiConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,14 +279,21 @@
     <Compile Include="Server\Models\Brand.cs" />
     <Compile Include="Server\Models\Gallery.cs" />
     <Compile Include="Server\Models\Photo.cs" />
+    <Compile Include="Server\Models\Role.cs" />
     <Compile Include="Server\Models\Tag.cs" />
     <Compile Include="Server\Models\User.cs" />
     <Compile Include="Server\Services\BrandService.cs" />
+    <Compile Include="Server\Services\CacheProvider.cs" />
     <Compile Include="Server\Services\Contracts\IBrandService.cs" />
+    <Compile Include="Server\Services\Contracts\ICache.cs" />
+    <Compile Include="Server\Services\Contracts\ICacheProvider.cs" />
+    <Compile Include="Server\Services\Contracts\IEncryptionService.cs" />
     <Compile Include="Server\Services\Contracts\IIdentityService.cs" />
     <Compile Include="Server\Services\Contracts\IPhotoService.cs" />
     <Compile Include="Server\Services\Contracts\ITagService.cs" />
     <Compile Include="Server\Services\Contracts\IUserService.cs" />
+    <Compile Include="Server\Services\Contracts\MemoryCache.cs" />
+    <Compile Include="Server\Services\EncryptionService.cs" />
     <Compile Include="Server\Services\IdentityService.cs" />
     <Compile Include="Server\Services\PhotoService.cs" />
     <Compile Include="Server\Services\InMemoryMultipartFormDataStreamProvider.cs" />
@@ -298,10 +307,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="wwwroot\reducers\photo\" />
+    <Folder Include="wwwroot\reducers\tag\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
     <TypeScriptCompile Include="libs\authInterceptor.ts" />
+    <TypeScriptCompile Include="libs\formEncode.ts" />
     <TypeScriptCompile Include="libs\invoke-async.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
     <TypeScriptCompile Include="libs\routeResolver.ts" />
@@ -309,8 +321,10 @@
     <TypeScriptCompile Include="typings\tsd.d.ts" />
     <TypeScriptCompile Include="wwwroot\actions\brand-actions.ts" />
     <TypeScriptCompile Include="wwwroot\actions\gallery-actions.ts" />
+    <TypeScriptCompile Include="wwwroot\actions\index.ts" />
     <TypeScriptCompile Include="wwwroot\actions\photo-actions.ts" />
     <TypeScriptCompile Include="wwwroot\actions\tag-actions.ts" />
+    <TypeScriptCompile Include="wwwroot\actions\user-actions.ts" />
     <TypeScriptCompile Include="wwwroot\bootstrap.ts" />
     <TypeScriptCompile Include="wwwroot\components\app.ts" />
     <TypeScriptCompile Include="wwwroot\components\gallery-list.ts" />
@@ -325,12 +339,20 @@
     <TypeScriptCompile Include="libs\localStorageManager.ts" />
     <TypeScriptCompile Include="libs\safeDigest.ts" />
     <TypeScriptCompile Include="wwwroot\reducers\brand\addBrandReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\brand\allBrandsReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\brand\removeBrandReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\gallery\addGalleryReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\gallery\allGalleriesReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\gallery\removeGalleryReducer.ts" />
     <TypeScriptCompile Include="wwwroot\reducers\index.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\user\userLoggedInReducer.ts" />
     <TypeScriptCompile Include="wwwroot\services\brand-service.ts" />
     <TypeScriptCompile Include="wwwroot\services\gallery-service.ts" />
     <TypeScriptCompile Include="wwwroot\services\index.ts" />
     <TypeScriptCompile Include="wwwroot\services\photo-service.ts" />
     <TypeScriptCompile Include="libs\store.ts" />
+    <TypeScriptCompile Include="wwwroot\services\tag-service.ts" />
+    <TypeScriptCompile Include="wwwroot\services\user-service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

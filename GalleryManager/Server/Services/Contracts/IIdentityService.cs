@@ -6,7 +6,6 @@ namespace Chloe.Server.Services.Contracts
 {
     public interface IIdentityService
     {
-        TokenDto SignIn(SignInDto signInDto);
 
         TokenDto TryToRegister(RegistrationRequestDto registrationRequestDto);
 
