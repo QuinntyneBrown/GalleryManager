@@ -174,17 +174,17 @@
     <Content Include="wwwroot\components\app.html">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
+    <Content Include="wwwroot\components\gallery-editor.css">
+      <DependentUpon>gallery-editor.ts</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\components\gallery-editor.html">
+      <DependentUpon>gallery-editor.ts</DependentUpon>
+    </Content>
     <Content Include="wwwroot\components\gallery-list.css">
       <DependentUpon>gallery-list.ts</DependentUpon>
     </Content>
     <Content Include="wwwroot\components\gallery-list.html">
       <DependentUpon>gallery-list.ts</DependentUpon>
-    </Content>
-    <Content Include="wwwroot\components\gallery.css">
-      <DependentUpon>gallery.ts</DependentUpon>
-    </Content>
-    <Content Include="wwwroot\components\gallery.html">
-      <DependentUpon>gallery.ts</DependentUpon>
     </Content>
     <Content Include="wwwroot\components\header.css">
       <DependentUpon>header.ts</DependentUpon>
@@ -315,6 +315,7 @@
     <TypeScriptCompile Include="libs\authInterceptor.ts" />
     <TypeScriptCompile Include="libs\formEncode.ts" />
     <TypeScriptCompile Include="libs\invoke-async.ts" />
+    <TypeScriptCompile Include="libs\loginRedirectProvider.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
     <TypeScriptCompile Include="libs\routeResolver.ts" />
     <TypeScriptCompile Include="typings\es6-shim\es6-shim.d.ts" />
@@ -328,7 +329,7 @@
     <TypeScriptCompile Include="wwwroot\bootstrap.ts" />
     <TypeScriptCompile Include="wwwroot\components\app.ts" />
     <TypeScriptCompile Include="wwwroot\components\gallery-list.ts" />
-    <TypeScriptCompile Include="wwwroot\components\gallery.ts" />
+    <TypeScriptCompile Include="wwwroot\components\gallery-editor.ts" />
     <TypeScriptCompile Include="wwwroot\components\header.ts" />
     <TypeScriptCompile Include="wwwroot\components\home.ts" />
     <TypeScriptCompile Include="wwwroot\components\index.ts" />

@@ -6,6 +6,7 @@ import { BrandService, GalleryService, PhotoService, TagService, UserService } f
 
 import {
 GalleryListComponent,
+GalleryEditorComponent,
 HeaderComponent,
 HomeComponent,
 AppComponent,
