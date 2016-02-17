@@ -155,6 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="dist\app.js" />
+    <Content Include="dist\galleryManagerApp.css" />
+    <Content Include="dist\galleryManagerAppTemplates.js" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="libs\angular-animate.min.js" />
@@ -169,6 +172,12 @@
     </Content>
     <Content Include="wwwroot\components\app.html">
       <DependentUpon>app.ts</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\components\gallery-list.css">
+      <DependentUpon>gallery-list.ts</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\components\gallery-list.html">
+      <DependentUpon>gallery-list.ts</DependentUpon>
     </Content>
     <Content Include="wwwroot\components\gallery.css">
       <DependentUpon>gallery.ts</DependentUpon>
@@ -292,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
+    <TypeScriptCompile Include="libs\authInterceptor.ts" />
     <TypeScriptCompile Include="libs\invoke-async.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
     <TypeScriptCompile Include="libs\routeResolver.ts" />
@@ -303,6 +313,7 @@
     <TypeScriptCompile Include="wwwroot\actions\tag-actions.ts" />
     <TypeScriptCompile Include="wwwroot\bootstrap.ts" />
     <TypeScriptCompile Include="wwwroot\components\app.ts" />
+    <TypeScriptCompile Include="wwwroot\components\gallery-list.ts" />
     <TypeScriptCompile Include="wwwroot\components\gallery.ts" />
     <TypeScriptCompile Include="wwwroot\components\header.ts" />
     <TypeScriptCompile Include="wwwroot\components\home.ts" />

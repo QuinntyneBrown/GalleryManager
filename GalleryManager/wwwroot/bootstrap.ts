@@ -4,7 +4,14 @@ import { BrandActionCreator, GalleryActionCreator, PhotoActionCreator } from "./
 
 import { BrandService, GalleryService, PhotoService } from "./services";
 
-import { HeaderComponent, HomeComponent, AppComponent, LoginComponent, PhotoUploadComponent } from "./components";
+import {
+GalleryListComponent,
+HeaderComponent,
+HomeComponent,
+AppComponent,
+LoginComponent,
+PhotoUploadComponent
+} from "./components";
 
 import { addBrandReducer } from "./reducers";
 
@@ -33,6 +40,13 @@ app.component({
     selector: "login"
 });
 
+app.component({
+    route: "/gallery-list",
+    templateUrl: "wwwroot/components/gallery-list.html",
+    component: GalleryListComponent,
+    selector: "gallery-list"
+});
+
 
 app.component({
     templateUrl: "wwwroot/components/home.html",
@@ -58,7 +72,9 @@ app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($r
 
     apiEndpointProvider.configure("/api");
 
-    $routeProvider.when("/", { template: "<login></login>" })
+    $routeProvider
+        .when("/", { template: "<login></login>" })
+        .when("/gallery-list", { template: "<gallery-list></gallery-list>" })
         .otherwise("/");
 }]);
 
