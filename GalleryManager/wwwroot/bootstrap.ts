@@ -52,13 +52,16 @@ app.service("brandActionCreator", ["brandService", "dispatcher", "guid", BrandAc
 
 app.service("brandService", ["$q", "apiEndpoint", "fetch", BrandService]);
 
-app.config(["$routeProvider", "initialStateProvider", ($routeProvider, initialStateProvider) => {
+app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($routeProvider, apiEndpointProvider, initialStateProvider) => {
+
     initialStateProvider.configure({});
+
+    apiEndpointProvider.configure("/api");
 
     $routeProvider.when("/", { template: "<login></login>" })
         .otherwise("/");
 }]);
 
 app.run(["invokeAsync", "brandActionCreator", (invokeAsync, brandActionCreator: BrandActionCreator) => {
-        //var id = brandActionCreator.add({ name: 'Test' });        
+                
 }]);
