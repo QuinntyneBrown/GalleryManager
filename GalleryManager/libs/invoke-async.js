@@ -8,11 +8,10 @@ angular.module("invokeAsync", []).value("invokeAsync", function (options) {
     var deferred = $q.defer();
     var actionId = options.params ? options.action(options.params) : options.action();
     var subscription = store.subscribe(function (state) {
-        if (state.lastModifiedByActionId == actionId) {
+        if (state.lastTriggeredByActionId == actionId) {
             subscription.dispose();
             deferred.resolve();
         }
     });
     return deferred.promise;
 });
-//# sourceMappingURL=invoke-async.js.map

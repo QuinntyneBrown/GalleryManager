@@ -16,4 +16,3 @@ var AuthInterceptor = (function () {
 angular.module("authInterceptor", ["store"])
     .factory("authInterceptor", ["store", function (store) { return new AuthInterceptor(store); }])
     .config(["$httpProvider", function ($httpProvider) { return $httpProvider.interceptors.push("authInterceptor"); }]);
-//# sourceMappingURL=authInterceptor.js.map

@@ -25,6 +25,7 @@ var app = (<any>angular.module("galleryManagerApp", [
     "formEncode",
     "invokeAsync",
     "localStorageManager",
+    "loginRedirect",
     "routeResolver",
     "routeWhenExtension",
     "safeDigest",
@@ -52,11 +53,15 @@ app.component({
 app.component({
     templateUrl: "wwwroot/components/login.html",
     component: LoginComponent,
-    providers: ["$location","invokeAsync","userActionCreator"],
+    providers: ["invokeAsync", "loginRedirect","userActionCreator"],
     selector: "login"
 });
 
-
+app.component({
+    templateUrl: "wwwroot/components/gallery-list.html",
+    component: GalleryListComponent,
+    selector: "gallery-list"
+});
 
 app.component({
     templateUrl: "wwwroot/components/header.html",
@@ -91,12 +96,12 @@ app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($r
         .when("/gallery/list", { template: "<gallery-list></gallery-list>" })
         .otherwise("/");
 
-}]).config(["reducersProvider", reducersProvider => {
-
-    reducersProvider.configure(addBrandReducer);
-
-    reducersProvider.configure(userLoggedInReducer);
-}]);
+}])
+    .config(["reducersProvider", reducersProvider => {
+        reducersProvider.configure(addBrandReducer);
+        reducersProvider.configure(userLoggedInReducer);
+    }])
+    .config(["loginRedirectProvider", loginRedirectProvider => loginRedirectProvider.setDefaultUrl("/gallery/list")]);
 
 app.run(["invokeAsync", "brandActionCreator", (invokeAsync, brandActionCreator: BrandActionCreator) => {
                 

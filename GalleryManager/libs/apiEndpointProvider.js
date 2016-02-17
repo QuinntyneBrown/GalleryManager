@@ -35,4 +35,3 @@ angular.module("apiEndpoint", []).provider("apiEndpoint", (function () {
     };
     return ApiEndpointProvider;
 })());
-//# sourceMappingURL=apiEndpointProvider.js.map

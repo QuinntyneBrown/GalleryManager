@@ -7,7 +7,7 @@ angular.module("invokeAsync", []).value("invokeAsync", options => {
     let deferred = $q.defer();
     let actionId = options.params ? options.action(options.params) : options.action();
     let subscription = store.subscribe((state: IAppState) => {
-        if (state.lastModifiedByActionId == actionId) {
+        if (state.lastTriggeredByActionId == actionId) {
             subscription.dispose();
             deferred.resolve();
         }

@@ -1,11 +1,11 @@
 ﻿/// <reference path="../typings/tsd.d.ts" />
 
 export interface IAppState {
-    lastModifiedByActionId: any;
+    lastTriggeredByActionId: any;
 }
 
 export type AppState = {
-    lastModifiedByActionId: any;
+    lastTriggeredByActionId: any;
 }
 
 export interface IDispatcher {

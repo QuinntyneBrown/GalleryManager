@@ -13,7 +13,7 @@ export class UserActionCreator {
                 password: options.password
             }
         }).then(results => {
-            this.dispatcher.dispatch(new UserLoggedInAction(newId, results.data));
+            this.dispatcher.dispatch(new UserLoggedInAction(newId, results));
         });
         return newId;
     }
