@@ -9,6 +9,17 @@ angular.module = function () {
                 return g[1].toUpperCase();
             });
         }
+        if (options.component.canActivate) {
+            m.config(["routeResolverServiceProvider", function (routeResolverServiceProvider) {
+                    routeResolverServiceProvider.configure({
+                        route: options.route,
+                        routes: options.routes,
+                        key: options.key,
+                        promise: options.component.canActivate()
+                    });
+                }
+            ]);
+        }
         var directiveDefinitionObject = {
             restrict: options.restrict || "E",
             template: angular.isArray(options.template) ? options.template.join(" \n ") : options.template,
@@ -84,4 +95,3 @@ angular.module = function () {
     };
     return m;
 };
-//# sourceMappingURL=component-extension.js.map

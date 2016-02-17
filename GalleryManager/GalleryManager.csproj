@@ -188,6 +188,12 @@
     <Content Include="wwwroot\components\home.html">
       <DependentUpon>home.ts</DependentUpon>
     </Content>
+    <Content Include="wwwroot\components\login.css">
+      <DependentUpon>login.ts</DependentUpon>
+    </Content>
+    <Content Include="wwwroot\components\login.html">
+      <DependentUpon>login.ts</DependentUpon>
+    </Content>
     <Content Include="wwwroot\components\photo-upload.css">
       <DependentUpon>photo-upload.ts</DependentUpon>
     </Content>
@@ -301,6 +307,7 @@
     <TypeScriptCompile Include="wwwroot\components\header.ts" />
     <TypeScriptCompile Include="wwwroot\components\home.ts" />
     <TypeScriptCompile Include="wwwroot\components\index.ts" />
+    <TypeScriptCompile Include="wwwroot\components\login.ts" />
     <TypeScriptCompile Include="wwwroot\components\photo-upload.ts" />
     <TypeScriptCompile Include="libs\component-extension.ts" />
     <TypeScriptCompile Include="libs\fetch.ts" />

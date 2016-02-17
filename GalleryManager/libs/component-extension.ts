@@ -13,6 +13,19 @@ angular.module = function () {
             });
         }
 
+        if (options.component.canActivate) {
+            m.config(["routeResolverServiceProvider", function (routeResolverServiceProvider) {                
+                    routeResolverServiceProvider.configure({
+                        route: options.route,
+                        routes: options.routes,
+                        key: options.key,
+                        promise: options.component.canActivate()
+                    });
+                }
+            ]);
+        }
+            
+
         var directiveDefinitionObject: any = {
             restrict: options.restrict || "E",
             template: angular.isArray(options.template) ? options.template.join(" \n ") : options.template,

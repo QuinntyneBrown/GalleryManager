@@ -4,7 +4,7 @@ import { BrandActionCreator, GalleryActionCreator, PhotoActionCreator } from "./
 
 import { BrandService, GalleryService, PhotoService } from "./services";
 
-import { HeaderComponent, HomeComponent, AppComponent, PhotoUploadComponent } from "./components";
+import { HeaderComponent, HomeComponent, AppComponent, LoginComponent, PhotoUploadComponent } from "./components";
 
 import { addBrandReducer } from "./reducers";
 
@@ -27,6 +27,14 @@ app.component({
 });
 
 app.component({
+    route: "/",
+    templateUrl: "wwwroot/components/login.html",
+    component: LoginComponent,
+    selector: "login"
+});
+
+
+app.component({
     templateUrl: "wwwroot/components/home.html",
     componentName: "homeComponent",
     component: HomeComponent,
@@ -47,7 +55,7 @@ app.service("brandService", ["$q", "apiEndpoint", "fetch", BrandService]);
 app.config(["$routeProvider", "initialStateProvider", ($routeProvider, initialStateProvider) => {
     initialStateProvider.configure({});
 
-    $routeProvider.when("/", { componentName: "homeComponent" })
+    $routeProvider.when("/", { template: "<login></login>" })
         .otherwise("/");
 }]);
 

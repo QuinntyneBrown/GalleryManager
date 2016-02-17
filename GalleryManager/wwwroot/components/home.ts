@@ -6,9 +6,9 @@ export class HomeComponent {
         
     }
 
-    static canActivate = () => [
-        "brandActionCreator", "invokeAsync",
-        (brandActionCreator: IBrandActionCreator, invokeAsync) => invokeAsync(brandActionCreator.get)
-    ];
+    //static canActivate = () => [
+    //    "brandActionCreator", "invokeAsync",
+    //    (brandActionCreator: IBrandActionCreator, invokeAsync) => invokeAsync(brandActionCreator.get)
+    //];
     
 }
