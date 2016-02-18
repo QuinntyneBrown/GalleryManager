@@ -5,7 +5,7 @@
     <h1>Gallery List</h1>
 
     <div data-ng-repeat="gallery in vm.entities">
-        <h1>{{ ::gallery.name }}</h1>
+        <h1>{{ ::gallery.name }} - {{ ::gallery.galleryPhotosCount }}</h1>
         <div><a data-ng-click="vm.remove(gallery)">delete</a></div>
         <div><a data-ng-click="vm.photoUpload(gallery)">photo upload</a></div>
     </div>

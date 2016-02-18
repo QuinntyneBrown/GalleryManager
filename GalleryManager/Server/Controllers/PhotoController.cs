@@ -8,9 +8,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Data.Entity;
+using Chloe.Server.Models;
 
 namespace Chloe.Server.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/photo")]
     public class PhotoController : ApiController
     {
@@ -23,6 +25,7 @@ namespace Chloe.Server.Controllers
             int galleryId = int.Parse(request.Headers.GetValues("x-galleryId").Single());
             var gallery = uow.Galleries.GetAll()
                 .Include(x=>x.GalleryPhotos)
+                .Include("GalleryPhotos.Photo")
                 .Where(x=> x.Id == galleryId).Single();
 
             string workingFolder = System.Web.HttpContext.Current.Server.MapPath("~/Uploads");
@@ -45,6 +48,13 @@ namespace Chloe.Server.Controllers
                 photo.Created = fileInfo.CreationTime;
                 photo.Modified = fileInfo.LastWriteTime;
                 photo.Size = fileInfo.Length / 1024;
+
+                if(gallery.GalleryPhotos.Where(x=>x.Photo.Name == photo.Name).FirstOrDefault() == null)
+                {
+                    var galleryPhoto = new GalleryPhoto();
+                    galleryPhoto.Photo = photo;
+                    gallery.GalleryPhotos.Add(galleryPhoto);
+                }
                 uow.SaveChanges();
             }
             return photos;

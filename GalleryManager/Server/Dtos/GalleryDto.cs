@@ -12,6 +12,7 @@ namespace Chloe.Server.Dtos
         {
             this.Id = model.Id;
             this.Name = model.Name;
+            this.GalleryPhotosCount = model.GalleryPhotos.Count;
         }
 
         public GalleryDto()
@@ -21,6 +22,7 @@ namespace Chloe.Server.Dtos
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public int GalleryPhotosCount { get; set; }
 
     }
 }

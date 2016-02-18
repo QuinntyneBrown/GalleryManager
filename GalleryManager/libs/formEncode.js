@@ -5,3 +5,4 @@ angular.module("formEncode", []).value("formEncode", function (data) {
     }
     return pairs.join('&').replace(/%20/g, '+');
 });
+//# sourceMappingURL=formEncode.js.map
