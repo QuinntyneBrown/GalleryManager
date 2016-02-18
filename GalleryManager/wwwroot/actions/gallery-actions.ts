@@ -15,6 +15,14 @@ export class GalleryActionCreator {
         });
         return newId;
     }
+
+    all = options => {
+        var newId = this.guid();
+        this.galleryService.get().then(results => {
+            this.dispatcher.dispatch(new AllGalleriesAction(newId, results));
+        });
+        return newId;
+    }
 }
 
 

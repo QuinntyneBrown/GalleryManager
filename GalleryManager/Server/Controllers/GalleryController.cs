@@ -21,6 +21,11 @@ namespace Chloe.Server.Controllers
         [HttpPut]
         public IHttpActionResult Update(GalleryAddOrUpdateRequestDto dto) { return Ok(this.service.AddOrUpdate(dto)); }
 
+        [Route("get")]
+        [HttpGet]
+        public IHttpActionResult Get(GalleryAddOrUpdateRequestDto dto) { return Ok(this.service.GetAll()); }
+
+
         protected readonly IGalleryService service;
 
     }

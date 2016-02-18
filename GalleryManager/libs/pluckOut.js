@@ -6,3 +6,4 @@ exports.pluckOut = function (options) {
     }
     return options.items;
 };
+//# sourceMappingURL=pluckOut.js.map

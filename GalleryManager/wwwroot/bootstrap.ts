@@ -60,6 +60,7 @@ app.component({
 });
 
 app.component({
+    route: "/gallery/list",
     templateUrl: "wwwroot/components/gallery-list.html",
     component: GalleryListComponent,
     selector: "gallery-list"
