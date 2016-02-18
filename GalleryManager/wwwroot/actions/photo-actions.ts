@@ -1,12 +1,10 @@
 ﻿import { IDispatcher } from "../../libs/store";
 
-
 export class PhotoActionCreator {
     constructor(private dispatcher: IDispatcher, private photoService) {
     }
 
 }
-
 
 export class AddPhotoAction { constructor(public entity) { } }
 

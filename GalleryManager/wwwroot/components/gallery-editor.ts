@@ -1,5 +1,7 @@
 ﻿export class GalleryEditorComponent {
-    constructor(private galleryActionCreator) {}
+    constructor(private galleryActionCreator) {
+
+    }
 
     storeOnChange = state => {
 

@@ -5,6 +5,7 @@ using Newtonsoft.Json.Serialization;
 using Chloe.Server.Auth;
 using Microsoft.Practices.Unity;
 using Chloe.Server.Config.Contracts;
+using Microsoft.Owin.Security.OAuth;
 
 namespace Chloe.Server
 {
@@ -22,7 +23,7 @@ namespace Chloe.Server
 
             app.UseJwtBearerAuthentication(new Chloe.Server.Auth.JwtOptions(configurationProvider));
 
-            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             var jSettings = new JsonSerializerSettings();
             jSettings.Formatting = Formatting.Indented;

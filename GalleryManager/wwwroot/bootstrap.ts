@@ -16,10 +16,11 @@ PhotoUploadComponent
 
 
 
-import { addBrandReducer, userLoggedInReducer } from "./reducers";
+import { addBrandReducer, addGalleryReducer, userLoggedInReducer } from "./reducers";
 
 
 var app = (<any>angular.module("galleryManagerApp", [
+    "addOrUpdate",
     "apiEndpoint",
     "authInterceptor",
     "fetch",
@@ -65,6 +66,12 @@ app.component({
 });
 
 app.component({
+    templateUrl: "wwwroot/components/gallery-editor.html",
+    component: GalleryEditorComponent,
+    selector: "gallery-editor"
+});
+
+app.component({
     templateUrl: "wwwroot/components/header.html",
     providers:["$rootScope","$route"],
     component: HeaderComponent,
@@ -86,8 +93,10 @@ app.component({
 });
 
 app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($routeProvider, apiEndpointProvider, initialStateProvider) => {
-
-    initialStateProvider.configure({});
+    initialStateProvider.configure({
+        brands:[],
+        galleries: []
+    });
 
     apiEndpointProvider.configure("/api");
 
@@ -100,6 +109,7 @@ app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($r
 }])
     .config(["reducersProvider", reducersProvider => {
         reducersProvider.configure(addBrandReducer);
+        reducersProvider.configure(addGalleryReducer);
         reducersProvider.configure(userLoggedInReducer);
     }])
     .config(["loginRedirectProvider", loginRedirectProvider => loginRedirectProvider.setDefaultUrl("/gallery/list")]);

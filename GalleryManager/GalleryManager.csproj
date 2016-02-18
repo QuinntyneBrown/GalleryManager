@@ -138,6 +138,10 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
@@ -269,6 +273,9 @@
     <Compile Include="Server\Dtos\BrandDto.cs" />
     <Compile Include="Server\Dtos\BrandRequestDto.cs" />
     <Compile Include="Server\Dtos\FileDto.cs" />
+    <Compile Include="Server\Dtos\GalleryAddOrUpdateRequestDto.cs" />
+    <Compile Include="Server\Dtos\GalleryAddOrUpdateResponseDto.cs" />
+    <Compile Include="Server\Dtos\GalleryDto.cs" />
     <Compile Include="Server\Dtos\ImageRequestDto.cs" />
     <Compile Include="Server\Dtos\OptionDto.cs" />
     <Compile Include="Server\Dtos\PhotoDto.cs" />
@@ -288,12 +295,14 @@
     <Compile Include="Server\Services\Contracts\ICache.cs" />
     <Compile Include="Server\Services\Contracts\ICacheProvider.cs" />
     <Compile Include="Server\Services\Contracts\IEncryptionService.cs" />
+    <Compile Include="Server\Services\Contracts\IGalleryService.cs" />
     <Compile Include="Server\Services\Contracts\IIdentityService.cs" />
     <Compile Include="Server\Services\Contracts\IPhotoService.cs" />
     <Compile Include="Server\Services\Contracts\ITagService.cs" />
     <Compile Include="Server\Services\Contracts\IUserService.cs" />
     <Compile Include="Server\Services\Contracts\MemoryCache.cs" />
     <Compile Include="Server\Services\EncryptionService.cs" />
+    <Compile Include="Server\Services\GalleryService.cs" />
     <Compile Include="Server\Services\IdentityService.cs" />
     <Compile Include="Server\Services\PhotoService.cs" />
     <Compile Include="Server\Services\InMemoryMultipartFormDataStreamProvider.cs" />
@@ -311,9 +320,11 @@
     <Folder Include="wwwroot\reducers\tag\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="libs\addOrUpdate.ts" />
     <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
     <TypeScriptCompile Include="libs\authInterceptor.ts" />
     <TypeScriptCompile Include="libs\formEncode.ts" />
+    <TypeScriptCompile Include="libs\index.ts" />
     <TypeScriptCompile Include="libs\invoke-async.ts" />
     <TypeScriptCompile Include="libs\loginRedirectProvider.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
