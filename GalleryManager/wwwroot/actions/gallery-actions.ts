@@ -23,6 +23,16 @@ export class GalleryActionCreator {
         });
         return newId;
     }
+
+    remove = options => {
+        var newId = this.guid();
+        this.galleryService.remove({
+            id: options.gallery.id
+        }).then(results => {
+            this.dispatcher.dispatch(new RemoveGalleryAction(newId, options.gallery));
+        });
+        return newId;
+    }
 }
 
 

@@ -34,4 +34,3 @@ var LoginRedirectProvider = (function () {
 })();
 angular.module("loginRedirect", []).provider("loginRedirect", [LoginRedirectProvider])
     .config(["$httpProvider", function ($httpProvider) { return $httpProvider.interceptors.push("loginRedirect"); }]);
-//# sourceMappingURL=loginRedirectProvider.js.map

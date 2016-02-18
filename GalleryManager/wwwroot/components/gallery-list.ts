@@ -1,9 +1,13 @@
 ﻿export class GalleryListComponent {
-    constructor() { }
+    constructor(private $location: angular.ILocationService,private galleryActionCreator) { }
 
-    storeOnChange = state => this.state = state;
+    storeOnChange = state =>  this.entities = state.galleries;
+    
+    entities;
 
-    state;
+    remove = gallery => this.galleryActionCreator.remove({ gallery: gallery });
+
+    photoUpload = gallery => this.$location.path("/photo/upload/" + gallery.id);
 
     static canActivate = () => [
         "galleryActionCreator", "invokeAsync",

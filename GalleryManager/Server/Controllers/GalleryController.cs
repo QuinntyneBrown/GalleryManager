@@ -25,6 +25,10 @@ namespace Chloe.Server.Controllers
         [HttpGet]
         public IHttpActionResult Get(GalleryAddOrUpdateRequestDto dto) { return Ok(this.service.GetAll()); }
 
+        [Route("remove")]
+        [HttpDelete]
+        public IHttpActionResult Remove(int id) { return Ok(this.service.Remove(id)); }
+
 
         protected readonly IGalleryService service;
 

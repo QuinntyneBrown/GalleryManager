@@ -1,6 +1,6 @@
 ﻿import { AllGalleriesAction } from "../../actions";
 
-export const allGalleryReducer = (state, action) => {
+export const allGalleriesReducer = (state, action) => {
     if (action instanceof AllGalleriesAction) {
         state.galleries = action.entities;
     }

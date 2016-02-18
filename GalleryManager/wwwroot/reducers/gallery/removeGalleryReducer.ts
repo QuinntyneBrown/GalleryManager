@@ -2,8 +2,7 @@
 import { pluckOut } from "../../../libs";
 
 export const removeGalleryReducer = (state, action) => {
-    if (action instanceof RemoveGalleryAction) 
-        pluckOut({ items: state.galleries, value: action.entity });
-        
+    if (action instanceof RemoveGalleryAction)        
+        pluckOut({ items: state.galleries, value: action.entity.id });       
     return state;
 }

@@ -30,12 +30,21 @@ namespace Chloe.Server.Services
         public ICollection<GalleryDto> GetAll()
         {
             ICollection<GalleryDto> response = new HashSet<GalleryDto>();
-
-            var galleries = uow.Galleries.GetAll()
-                .Where(x => x.IsDeleted == false)
-                .ToList();
-
+            
+            foreach (var gallery in uow.Galleries.GetAll().Where(x => x.IsDeleted == false))
+            {
+                response.Add(new GalleryDto(gallery));
+            }
+            
             return response;
+        }
+
+        public dynamic Remove(int id)
+        {
+            var gallery = uow.Galleries.GetById(id);
+            gallery.IsDeleted = true;
+            uow.SaveChanges();
+            return id;
         }
 
         protected readonly IChloeUow uow;

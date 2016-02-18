@@ -1,4 +1,5 @@
-﻿class LoginRedirectProvider implements ng.IServiceProvider {    
+﻿
+class LoginRedirectProvider implements ng.IServiceProvider {    
     loginUrl: string = "/login";
     lastPath: string;
     defaultPath: string = "/";

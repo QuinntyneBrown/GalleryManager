@@ -10,7 +10,7 @@
         });    
     }
 
-    username;
-    password;
+    username = "quinntyne@hotmail.com";
+    password = "password";
 }
 

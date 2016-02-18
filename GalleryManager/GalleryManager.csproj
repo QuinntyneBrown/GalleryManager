@@ -285,6 +285,7 @@
     <Compile Include="Server\Models\BaseEntity.cs" />
     <Compile Include="Server\Models\Brand.cs" />
     <Compile Include="Server\Models\Gallery.cs" />
+    <Compile Include="Server\Models\GalleryPhoto.cs" />
     <Compile Include="Server\Models\Photo.cs" />
     <Compile Include="Server\Models\Role.cs" />
     <Compile Include="Server\Models\Tag.cs" />
@@ -318,6 +319,10 @@
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\bootstrap.actions.ts" />
+    <TypeScriptCompile Include="wwwroot\bootstrap.components.ts" />
+    <TypeScriptCompile Include="wwwroot\bootstrap.reducers.ts" />
+    <TypeScriptCompile Include="wwwroot\bootstrap.services.ts" />
     <TypeScriptCompile Include="libs\addOrUpdate.ts" />
     <TypeScriptCompile Include="libs\apiEndpointProvider.ts" />
     <TypeScriptCompile Include="libs\authInterceptor.ts" />
