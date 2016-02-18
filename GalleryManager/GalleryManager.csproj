@@ -316,8 +316,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
-    <Folder Include="wwwroot\reducers\photo\" />
-    <Folder Include="wwwroot\reducers\tag\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="libs\addOrUpdate.ts" />
@@ -327,6 +325,7 @@
     <TypeScriptCompile Include="libs\index.ts" />
     <TypeScriptCompile Include="libs\invoke-async.ts" />
     <TypeScriptCompile Include="libs\loginRedirectProvider.ts" />
+    <TypeScriptCompile Include="libs\pluckOut.ts" />
     <TypeScriptCompile Include="libs\route-when-extension.ts" />
     <TypeScriptCompile Include="libs\routeResolver.ts" />
     <TypeScriptCompile Include="typings\es6-shim\es6-shim.d.ts" />
@@ -357,6 +356,12 @@
     <TypeScriptCompile Include="wwwroot\reducers\gallery\allGalleriesReducer.ts" />
     <TypeScriptCompile Include="wwwroot\reducers\gallery\removeGalleryReducer.ts" />
     <TypeScriptCompile Include="wwwroot\reducers\index.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\photo\addPhotoReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\photo\allPhotosReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\photo\removePhotoReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\tag\addTagReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\tag\allTagsReducer.ts" />
+    <TypeScriptCompile Include="wwwroot\reducers\tag\removeTagReducer.ts" />
     <TypeScriptCompile Include="wwwroot\reducers\user\userLoggedInReducer.ts" />
     <TypeScriptCompile Include="wwwroot\services\brand-service.ts" />
     <TypeScriptCompile Include="wwwroot\services\gallery-service.ts" />

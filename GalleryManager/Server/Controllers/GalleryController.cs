@@ -4,6 +4,7 @@ using System.Web.Http;
 
 namespace Chloe.Server.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/gallery")]
     public class GalleryController : ApiController
     {

@@ -2,7 +2,9 @@ var AuthInterceptor = (function () {
     function AuthInterceptor(store) {
         var _this = this;
         this.store = store;
-        this.storeOnChange = function (state) { return _this.token = state.token; };
+        this.storeOnChange = function (state) {
+            _this.token = state.token;
+        };
         this.request = function (config) {
             if (_this.token)
                 config.headers.Authorization = "Bearer " + _this.token;

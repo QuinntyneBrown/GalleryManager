@@ -8,9 +8,7 @@
     }
 
     addOrUpdate = () => this.galleryActionCreator.addOrUpdate({
-        id: this.id,
-        name: this.name,
-        photos: this.photos
+        name: this.name
     });
     
     remove = () => this.galleryActionCreator.remove({ id: this.id });

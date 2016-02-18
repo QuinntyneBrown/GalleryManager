@@ -41,7 +41,7 @@ app.service("tagService", ["$q", "apiEndpoint", "fetch", TagService]);
 app.service("userService", ["$q", "apiEndpoint", "fetch", "formEncode", UserService]);
 
 app.service("brandActionCreator", ["brandService", "dispatcher", "guid", BrandActionCreator]);
-app.service("galleryActionCreator", ["galleryService", "dispatcher", "guid", GalleryActionCreator]);
+app.service("galleryActionCreator", ["dispatcher", "galleryService", "guid", GalleryActionCreator]);
 app.service("tagActionCreator", ["tagService", "dispatcher", "guid", TagActionCreator]);
 app.service("userActionCreator", ["dispatcher", "guid", "userService", UserActionCreator]);
 app.service("photoActionCreator", ["photoService", "dispatcher", "guid", PhotoActionCreator]);
@@ -68,7 +68,8 @@ app.component({
 app.component({
     templateUrl: "wwwroot/components/gallery-editor.html",
     component: GalleryEditorComponent,
-    selector: "gallery-editor"
+    selector: "gallery-editor",
+    providers:["galleryActionCreator"]
 });
 
 app.component({
@@ -95,7 +96,11 @@ app.component({
 app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($routeProvider, apiEndpointProvider, initialStateProvider) => {
     initialStateProvider.configure({
         brands:[],
-        galleries: []
+        galleries: [],
+        photos: [],
+        tags: [],
+        users: [],
+        currentUser: null
     });
 
     apiEndpointProvider.configure("/api");
@@ -104,6 +109,8 @@ app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($r
         .when("/", { template: "<login></login>" })
         .when("/brand/list", { template: "<brand-list></brand-list>" })
         .when("/gallery/list", { template: "<gallery-list></gallery-list>" })
+        .when("/photo/list", { template: "<photo-list></photo-list>" })
+        .when("/tag/list", { template: "<tag-list></tag-list>" })
         .otherwise("/");
 
 }])
@@ -113,7 +120,3 @@ app.config(["$routeProvider", "apiEndpointProvider", "initialStateProvider", ($r
         reducersProvider.configure(userLoggedInReducer);
     }])
     .config(["loginRedirectProvider", loginRedirectProvider => loginRedirectProvider.setDefaultUrl("/gallery/list")]);
-
-app.run(["invokeAsync", "brandActionCreator", (invokeAsync, brandActionCreator: BrandActionCreator) => {
-                
-}]);

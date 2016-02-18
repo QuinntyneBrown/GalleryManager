@@ -4,10 +4,12 @@
 export class GalleryActionCreator {
     constructor(private dispatcher: IDispatcher, private galleryService, private guid) { }
 
-    add = options => {
+    addOrUpdate = options => {
         var newId = this.guid();
         this.galleryService.add({
-            name: options.name
+            data: {
+                name: options.name
+            }
         }).then(results => {
             this.dispatcher.dispatch(new AddGalleryAction(newId, results));
         });
@@ -20,7 +22,7 @@ export class AddGalleryAction { constructor(public id, public entity) { } }
 
 export class AllGalleriesAction { constructor(public id, public entities) { } }
 
-export class RemoveGalleryAction { constructor(public id, public entityId) { } }
+export class RemoveGalleryAction { constructor(public id, public entity) { } }
 
 export class GallerysFilterAction { constructor(public id, public term) { } }
 
