@@ -8,6 +8,7 @@ namespace Chloe.Server.Data.Contracts
         IRepository<Photo> Photos { get; }
         IRepository<User> Users { get; }
         IRepository<Gallery> Galleries { get; }
+        IRepository<Tag> Tags { get; }
         void SaveChanges();
     }
 }

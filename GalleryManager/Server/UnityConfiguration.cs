@@ -23,6 +23,7 @@ namespace Chloe.Server
             container.RegisterType<IIdentityService, IdentityService>();
             container.RegisterType<ICacheProvider, CacheProvider>();
             container.RegisterType<IConfigurationProvider,ConfigurationProvider>();
+            container.RegisterType<ITagService, TagService>();
             return container;
         }
     }

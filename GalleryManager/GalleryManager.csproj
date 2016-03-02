@@ -260,6 +260,7 @@
     <Compile Include="Server\Controllers\BrandController.cs" />
     <Compile Include="Server\Controllers\GalleryController.cs" />
     <Compile Include="Server\Controllers\PhotoController.cs" />
+    <Compile Include="Server\Controllers\TagController.cs" />
     <Compile Include="Server\Controllers\UserController.cs" />
     <Compile Include="Server\Data\ChloeContext.cs" />
     <Compile Include="Server\Data\ChloeUow.cs" />
@@ -281,6 +282,9 @@
     <Compile Include="Server\Dtos\PhotoDto.cs" />
     <Compile Include="Server\Dtos\RegistrationRequestDto.cs" />
     <Compile Include="Server\Dtos\SignInDto.cs" />
+    <Compile Include="Server\Dtos\TagAddOrUpdateRequestDto.cs" />
+    <Compile Include="Server\Dtos\TagAddOrUpdateResponseDto.cs" />
+    <Compile Include="Server\Dtos\TagDto.cs" />
     <Compile Include="Server\Dtos\TokenDto.cs" />
     <Compile Include="Server\Models\BaseEntity.cs" />
     <Compile Include="Server\Models\Brand.cs" />
