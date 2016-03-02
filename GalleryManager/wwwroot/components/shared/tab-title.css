@@ -1,0 +1,13 @@
+﻿.tab-title {
+    display:inline-block;
+    font-weight:100;
+    width:200px;
+    height:75px;
+    text-align:center;
+    text-transform:uppercase;    
+}
+
+
+.tab-title.tabs-titleselected {
+    font-weight:800;
+}

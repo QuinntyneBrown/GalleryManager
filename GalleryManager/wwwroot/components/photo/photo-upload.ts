@@ -1,4 +1,11 @@
-﻿export class PhotoUploadComponent {
+﻿import { Component } from "../../../libs/component-decorators";
+
+@Component({
+    templateUrl: "wwwroot/components/photo/photo-upload.html",
+    selector: "photo-upload",
+    providers: ["$attrs", "$element", "$http","$routeParams","$scope"]
+})
+export class PhotoUploadComponent {
     constructor(private $attrs: ng.IAttributes,
         private $element: ng.IAugmentedJQuery,
         private $http: ng.IHttpService,

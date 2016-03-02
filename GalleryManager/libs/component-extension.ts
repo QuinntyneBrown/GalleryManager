@@ -24,6 +24,18 @@ angular.module = function () {
                 }
             ]);
         }
+
+        if (options.component.prototype.canActivate) {
+            m.config(["routeResolverServiceProvider", function (routeResolverServiceProvider) {
+                routeResolverServiceProvider.configure({
+                    route: options.route,
+                    routes: options.routes,
+                    key: options.key,
+                    promise: options.component.prototype.canActivate()
+                });
+            }
+            ]);
+        }
             
 
         var directiveDefinitionObject: any = {

@@ -1,7 +1,7 @@
-
 .galleryEditor {
 
 }
+
 
 .appHeader {
     height:50px;
@@ -22,3 +22,33 @@ body {
     height:500px;
     width:500px;
 }
+.button {
+    margin-top:15px;
+    margin-bottom:30px;
+    line-height:30px;
+    width:75px;
+    background-color:#FFF;
+    border: solid 1px;
+    cursor:pointer;
+}
+
+.tab-title {
+    display:inline-block;
+    font-weight:100;
+    width:200px;
+    height:75px;
+    text-align:center;
+    text-transform:uppercase;    
+}
+
+
+.tab-title.tabs-titleselected {
+    font-weight:800;
+}
+
+
+.tabs-contentInActive {
+    display:none;
+}
+
+

@@ -1,4 +1,12 @@
-﻿export class GalleryEditorComponent {
+﻿import { CanActivate, Component } from "../../../libs/component-decorators";
+
+@Component({
+    route: "/gallery/edit/:id",
+    templateUrl: "wwwroot/components/gallery/gallery-editor.html",
+    selector: "gallery-editor",
+    providers: ["galleryActionCreator"]
+})
+export class GalleryEditorComponent {
     constructor(private galleryActionCreator) { }
 
     storeOnChange = state => {

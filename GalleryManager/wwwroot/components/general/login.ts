@@ -1,4 +1,11 @@
-﻿export class LoginComponent {
+﻿import { Component } from "../../../libs/component-decorators";
+
+@Component({
+    templateUrl: "wwwroot/components/general/login.html",
+    selector: "login",
+    providers: ["invokeAsync", "loginRedirect","userActionCreator"]
+})
+export class LoginComponent {
     constructor(private invokeAsync, private loginRedirect, private userActionCreator) { }
     
     tryToLogin = () => {

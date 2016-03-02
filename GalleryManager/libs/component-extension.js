@@ -20,6 +20,17 @@ angular.module = function () {
                 }
             ]);
         }
+        if (options.component.prototype.canActivate) {
+            m.config(["routeResolverServiceProvider", function (routeResolverServiceProvider) {
+                    routeResolverServiceProvider.configure({
+                        route: options.route,
+                        routes: options.routes,
+                        key: options.key,
+                        promise: options.component.prototype.canActivate()
+                    });
+                }
+            ]);
+        }
         var directiveDefinitionObject = {
             restrict: options.restrict || "E",
             template: angular.isArray(options.template) ? options.template.join(" \n ") : options.template,
