@@ -61,6 +61,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.DiskCache, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.DiskCache.4.0.5\lib\net45\ImageResizer.Plugins.DiskCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.PrettyGifs, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.PrettyGifs.4.0.5\lib\net45\ImageResizer.Plugins.PrettyGifs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -163,6 +175,7 @@
     <Content Include="dist\app.js" />
     <Content Include="dist\galleryManagerApp.css" />
     <Content Include="dist\galleryManagerAppTemplates.js" />
+    <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="libs\angular-animate.min.js" />
@@ -172,6 +185,7 @@
     <Content Include="libs\rx.all.compat.min.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
+    <Content Include="Uploads\photo.PNG" />
     <Content Include="wwwroot\components\general\app.css">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
@@ -269,6 +283,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserConfiguration.cs" />
     <Compile Include="Server\ApiConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -344,7 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="libs\component-decorators.ts" />
